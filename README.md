@@ -8,7 +8,7 @@ Grazie a questo semplice script sarà possibile fermare il proprio veicolo Renau
 
 ### Limitazioni del programma
 Il programma non è perfetto e ha un problema principale: ***il programma deve sempre essere attivo durante la carica del veicolo per funzionare.***\
-Questo è un problema che si può risolvere con un pc che deve rimanere sempre acceso o tramite esecuzione come servizio.
+Volendo questo si può risolvere mettendo in esecuzione automatica il programma in modo da partire all'accesso di Windows, anche se non spiegherò qui come fare.
 
 ### Come funziona?
 Il funzionamento è molto semplice: ogni 15 minuti viene controllato lo stato dell'auto (percentuale batteria e se è in carica o no) e viene bloccata la carica nel caso in cui sia collegata e oltre il limite impostato.\
