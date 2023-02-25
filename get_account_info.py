@@ -9,6 +9,7 @@ from renault_api.renault_client import RenaultClient
 async def main():
     with open('pass.json', 'r') as f:
         private_infos = json_load(f)
+
     async with aiohttp.ClientSession() as websession:
         client = RenaultClient(websession=websession, locale="it_IT")
         try:
@@ -27,7 +28,7 @@ async def main():
 
         try:
             vehicle = await account.get_api_vehicle(private_infos['vin'])
-            print(await vehicle.get_details())
+            await vehicle.get_details()
         except:
             print(f'Sono presenti {len(vehicles.vehicleLinks)} veicoli, con : {" ; ".join([f"{{modello: {vehicle.vehicleDetails.model.label}, vin: {vehicle.vin}}}" for vehicle in vehicles.vehicleLinks])}')
             exit(1)

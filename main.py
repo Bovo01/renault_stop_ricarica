@@ -41,6 +41,7 @@ async def main():
                 # Get vehicle
                 vehicle = await account.get_api_vehicle(private_infos['vin'])
 
+                print('Programma avviato. Non chiudere questa finestra altrimenti il programma verrà arrestato.')
                 # Program execution
                 await stay_awake(vehicle)
         except BaseException as e:
