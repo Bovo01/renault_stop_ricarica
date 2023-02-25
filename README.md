@@ -39,7 +39,7 @@ Estrarre il file scaricato e aprire la cartella.
 
 ### Configurazione account e personalizzazione dati
 Prima di avviare il programma bisogna configurare un paio di opzioni, incluse nei file `pass.json` e `options.json`.\
-> **Warning**
+> **Warning**\
 > I comandi dal terminale (o `cmd`) devono essere eseguiti da dentro la cartella estratta in precedenza. Per fare ciò in Windows 11 basta fare `tasto destro->Apri nel terminale`, in versioni precedenti bisogna aprire il terminale e usare il comando `cd` per spostarsi nella cartella desiderata. Es: `cd C:\percorso\per\cartella`
 
 #### Configurazione di `pass.json`
