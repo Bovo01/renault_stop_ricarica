@@ -5,11 +5,8 @@ Lo scopo del programma è di aggiungere una funzionalità mancante nell'applicaz
 Grazie a questo semplice script sarà possibile fermare il proprio veicolo Renault ad una percentuale stabilita dall'utente.
 
 ### Limitazioni del programma
-Il programma non è per niente perfetto e ha parecchi problemi e alcune limitazioni:
-1. il programma deve sempre essere attivo durante la carica del veicolo per funzionare
-2. la configurazione non è molto semplice e veloce
-<!-- -->
-Il primo problema si può risolvere se avete un computer che deve stare sempre accesso e per il secondo problema qui sotto spiegherò come configurare tutto.
+Il programma non è perfetto e ha un problema principale: ***il programma deve sempre essere attivo durante la carica del veicolo per funzionare.***\
+Questo è un problema che si può risolvere con un pc che deve rimanere sempre acceso o tramite esecuzione come servizio come spiegato qui. TODO
 
 ### Come funziona?
 Il funzionamento è molto semplice: ogni 15 minuti viene controllato lo stato dell'auto (percentuale batteria e se è in carica o no) e viene bloccata la carica nel caso in cui sia collegata e oltre il limite impostato.\
@@ -26,7 +23,9 @@ Per avviare lo script serviranno:
 2. [Renault API](https://github.com/hacf-fr/renault-api) - Libreria ufficiale di Renault per comunicare con il veicolo
 <!-- -->
 Per installare Python basterà andare al [link qua](https://www.python.org/downloads/) e scaricare l'ultima versione.\
-Dopo aver installato Python, bisogna aprire `cmd` su windows e eseguire il seguente comando:
+Selezionare la spunta in basso `Add python.exe to PATH`, come da immagine, prima di avviare l'installazione:\
+![add_to_path](https://user-images.githubusercontent.com/47921869/221363177-3d61c586-3a13-4d49-99a4-b91295de26d9.png)\
+Dopo aver installato Python, bisogna aprire terminale (o `cmd`) su Windows (digitando `cmd` nella barra di ricerca) e eseguire il seguente comando:
 ```
 python -m pip install renault-api
 ```
@@ -38,12 +37,13 @@ Andare in alto in questa pagina e cliccare su `Code->Download ZIP` (come da imma
 Estrarre il file scaricato e aprire la cartella.
 
 ### Configurazione account e personalizzazione dati
-Prima di avviare il programma bisogna configurare un paio di opzioni, incluse nei file `pass.json` e `options.json`.\
+Prima di avviare il programma bisogna configurare un paio di opzioni, incluse nei file `pass.json` e `options.json`.
 > **Warning**\
-> I comandi dal terminale (o `cmd`) devono essere eseguiti da dentro la cartella estratta in precedenza. Per fare ciò in Windows 11 basta fare `tasto destro->Apri nel terminale`, in versioni precedenti bisogna aprire il terminale e usare il comando `cd` per spostarsi nella cartella desiderata. Es: `cd C:\percorso\per\cartella`
+> I comandi dal terminale (o `cmd`) devono essere eseguiti da dentro la cartella estratta in precedenza. Per fare ciò in Windows 11 basta fare `tasto destro->Apri nel terminale`, in versioni precedenti bisogna aprire il terminale e usare il comando `cd` per spostarsi nella cartella desiderata. Es: `cd C:\percorso\per\cartella`. In alternativa (sempre per versioni precedenti a Windows 11) si può premere `MAIUSC + tasto destro` e premere `Apri finestra powershell qui`.
 
 #### Configurazione di `pass.json`
-Questo file contiene le informazioni che servono a Renault API per accedere al tuo account e al tuo veicolo. Bisogna configurare 4 campi:
+Questo file contiene le informazioni che servono a Renault API per accedere al tuo account e al tuo veicolo. Aprire il file con un editor di testo, come blocco note.\
+Bisogna configurare 4 campi:
 1. *email*: L'email utilizzata per accedere all'account
 2. *pass*: La password utilizzata per accedere all'account
 <!-- -->
@@ -51,11 +51,11 @@ Per ottenere i prossimi 2 parametri bisogna eseguire il file `get_account_info.p
 ```
 python get_account_info.py
 ```
-3. *account_id*: Eseguire `get_account_info.py` dopo aver inserito email e password e vi verrà detto il vostro id da inserire in `pass.json`
-4. *vin*: Eseguire di nuovo `get_account_info.py` dopo aver inserito l'id account e vi verranno detti i nomi dei veicoli con i rispettivi vin (codice identificativo)
+3. *account_id*: Eseguire `get_account_info.py` dopo aver inserito email e password e vi verrà indicato il vostro id da inserire in `pass.json`
+4. *vin*: Eseguire di nuovo `get_account_info.py` dopo aver inserito l'id account e vi verranno indicati i nomi dei veicoli con i rispettivi vin (codice identificativo)
 
 #### Configurazione di `options.json`
-Questo file contiene informazioni personalizzabili dall'utente e che possono essere cambiate nel tempo (una volta cambiate bisogna riavviare il programma).\
+Questo file contiene informazioni personalizzabili dall'utente e che possono essere cambiate nel tempo (ogni volta cambiate bisogna riavviare il programma). Aprire il file con un editor di testo, come blocco note.\
 Contiene 4 campi:
 1. *limite_percentuale*: La percentuale di batteria a cui volete far arrivare il veicolo.
 2. *errore_percentuale*: Essendo che il programma non controlla istante per istante lo stato del veicolo, ho aggiunto un errore (può essere impostato a 0) che può essere utile per non superare il limite_percentuale inserito. Si può calcolare in base alla velocità di ricarica di colonnina/wallbox e alla frequenza di aggiornamento. Se si vuole disattivare basta impostare su 0, altrimenti il valore attuale (3) è per una wallbox da circa 3kW di potenza.
