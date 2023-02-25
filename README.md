@@ -1,4 +1,6 @@
 # Renault stop ricarica
+> **Note**\
+> Se trovi utile questo programma puoi considerare di offrirmi un caffè [qui](https://www.buymeacoffee.com/bovo01)
 ## Descrizione del programma
 ### A cosa serve?
 Lo scopo del programma è di aggiungere una funzionalità mancante nell'applicazione My Renault per le auto elettriche, ossia il limite della ricarica ad una determinata percentuale.\
@@ -6,7 +8,7 @@ Grazie a questo semplice script sarà possibile fermare il proprio veicolo Renau
 
 ### Limitazioni del programma
 Il programma non è perfetto e ha un problema principale: ***il programma deve sempre essere attivo durante la carica del veicolo per funzionare.***\
-Questo è un problema che si può risolvere con un pc che deve rimanere sempre acceso o tramite esecuzione come servizio come spiegato qui. TODO
+Questo è un problema che si può risolvere con un pc che deve rimanere sempre acceso o tramite esecuzione come servizio.
 
 ### Come funziona?
 Il funzionamento è molto semplice: ogni 15 minuti viene controllato lo stato dell'auto (percentuale batteria e se è in carica o no) e viene bloccata la carica nel caso in cui sia collegata e oltre il limite impostato.\
